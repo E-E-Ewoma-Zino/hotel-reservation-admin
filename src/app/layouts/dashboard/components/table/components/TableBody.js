@@ -1,8 +1,8 @@
 // the body of the table
 
-import { ArrowDownIcon, ArrowUpIcon } from "../../../../../icons/Icons";
+import { ArrowUpIcon } from "../../../../../icons/Icons";
 
-export default function TableBody({ bodyContent }) {
+export default function TableBody({ bodyContent = [] }) {
 	return (
 		<tbody>
 			{
