@@ -10,7 +10,7 @@ import Table from "../../components/table/Table";
 import TableHead from "../../components/table/components/tableHead/TableHead";
 import { allRooms } from "../../../../api/get";
 import RoomList from "./components/RoomList";
-import { setRoomChangeContext } from "./context/roomContext";
+import { setRoomChangeContext } from "../../../context/allContext";
 
 export default function AllRooms() {
 	const [isLoading, setIsLoading] = useState(false);

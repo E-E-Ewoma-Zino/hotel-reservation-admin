@@ -14,6 +14,9 @@ export async function allPopulatedBookings(){
 	return await axios.get(host + "bookings/populated?opt=room user");
 }
 
+export async function allUpcomingReservations(){
+	return await axios.get(host + "tracking/upcomingReservations");
+}
 
 const getApi = {
 	allRooms,

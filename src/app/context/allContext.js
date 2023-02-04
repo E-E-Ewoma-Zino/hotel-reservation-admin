@@ -3,8 +3,8 @@ import { createContext } from "react";
 
 export const setRoomChangeContext = createContext(null);
 
-const allRoomContext = {
+const allContext = {
 	setRoomChangeContext
 }
 
-export default allRoomContext;
+export default allContext;

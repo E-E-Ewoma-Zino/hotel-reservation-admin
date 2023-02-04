@@ -6,7 +6,7 @@ import { FireIcon, UserAddIcon, WidgetIcon } from "../../../../icons/Icons";
 import TableRow from "../../../components/table/components/tableRow/TableRow";
 import TableColumn from "../../../components/table/components/tableColumn/TableColumn";
 import { deleteRoom } from "../../../../../api/delete";
-import { setRoomChangeContext } from "../context/roomContext";
+import { setRoomChangeContext } from "../../../../context/allContext";
 import host from "../../../../../constants/host";
 
 export default function RoomList({ id, name, price, imgSrc, isAvaliable, type }) {
