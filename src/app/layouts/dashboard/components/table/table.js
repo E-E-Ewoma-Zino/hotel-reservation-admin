@@ -26,7 +26,7 @@ export default function Table() {
 
 			<div className="table-responsive">
 				<table className="table align-items-center table-flush">
-					<TableHead head={["User", "Room", "Arrival", "Departure", "Reserved On"]} />
+					<TableHead head={["User", "Room", "Arrival", "Departure", "Reserved On", "Actions"]} />
 					{
 						!isLoading && reservations.data.map((reserve, index) => reserve && <TableBody key={index} bodyContent={reserve} />)
 					}

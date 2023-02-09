@@ -9,7 +9,7 @@ import TableColumn from "../../components/table/components/tableColumn/TableColu
 import TableRow from "../../components/table/components/tableRow/TableRow";
 
 
-export default function RoomList({ id, user, room, payed, adult, children, start, end }) {
+export default function BookingList({ id, user, room, payed, adult, children, start, end }) {
 
 	async function handleDeleteRoom(id, name) {
 		try {
@@ -35,7 +35,7 @@ export default function RoomList({ id, user, room, payed, adult, children, start
 	}
 
 	return (
-		<TableRow>
+		<TableRow id={id}>
 			<TableColumn>
 				<a href="#x" className="fw-bold">
 					<img src={ host + room?.images[0]?.path } className="img-fluid rounded-circle" alt={room?.name} width="50em" height="50em" />
@@ -66,7 +66,7 @@ export default function RoomList({ id, user, room, payed, adult, children, start
 				<DropDownBtn name="Actions" buttonClass="btn btn-sm btn-link d-inline-flex align-items-center dropdown-toggle">
 					<DropDownItem name="View" icon={<WidgetIcon className="dropdown-icon text-gray-400 me-2" />} />
 					<DropDownItem name="Edit" icon={<UserAddIcon className="dropdown-icon text-gray-400 me-2" />} />
-					<DropDownItem name="Delete" icon={<FireIcon className="dropdown-icon text-danger me-2" />} click={() => handleDeleteRoom(id, room?.name)} />
+					<DropDownItem name="Cancel" icon={<FireIcon className="dropdown-icon text-danger me-2" />} click={() => handleDeleteRoom(id, room?.name)} />
 				</DropDownBtn>
 			</TableColumn>
 		</TableRow>

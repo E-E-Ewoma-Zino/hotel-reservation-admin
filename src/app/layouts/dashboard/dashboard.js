@@ -23,7 +23,7 @@ export default function Dashboard() {
 				</div>
 			</div>
 
-			<div className="py-4">
+			<div className="py-4 d-none">
 				<DropDownBtn name="New Task" buttonClassName="btn btn-sm btn-gray-800 d-inline-flex align-items-center dropdown-toggle" icon={<PlusIcon className="icon icon-xs me-2" />} >
 					<DropDownItem name="Add Room" icon={<UserAddIcon className="dropdown-icon text-gray-400 me-2" />} />
 					<DropDownItem name="Add Widget" icon={<WidgetIcon className="dropdown-icon text-gray-400 me-2" />} />
@@ -34,11 +34,11 @@ export default function Dashboard() {
 				</DropDownBtn>
 			</div>
 
-			<Row>
+			<Row className="">
 				<Col size="col-12 mb-4">
 					<SalesChat />
 				</Col>
-				<Col size="col-12 col-sm-6 col-xl-4 mb-4">
+				{/* <Col size="col-12 col-sm-6 col-xl-4 mb-4">
 					<DetailsCard name="Customer" type="danger" amount="345,123" timePeriod="Fri 3 - Apr 1" previousTime={{ text: "Since Last Month", amount: 22 }} icon={<UserGroupIcon className="icon" />} />
 				</Col>
 				<Col size="col-12 col-sm-6 col-xl-4 mb-4">
@@ -46,7 +46,7 @@ export default function Dashboard() {
 				</Col>
 				<Col size="col-12 col-sm-6 col-xl-4 mb-4">
 					<DetailsCard name="Customer" type="tertiary" amount="345,123" timePeriod="Fri 3 - Apr 1" previousTime={{ text: "Since Last Month", amount: 22 }} icon={<ChartUpIcon className="icon" />} />
-				</Col>
+				</Col> */}
 			</Row>
 			<Row>
 				<Col size="col-12 mb-4">

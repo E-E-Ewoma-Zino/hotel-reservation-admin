@@ -1,8 +1,8 @@
 // The table row
 
-export default function TableRow({ children }) {
+export default function TableRow({ id, children }) {
 	return (
-		<tr>
+		<tr id={id}>
 			{children}
 		</tr>
 	);

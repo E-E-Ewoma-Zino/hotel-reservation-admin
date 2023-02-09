@@ -18,6 +18,10 @@ export async function allUpcomingReservations(){
 	return await axios.get(host + "tracking/upcomingReservations");
 }
 
+export async function trackedDetails(){
+	return await axios.get(host + "tracking/mostBooked");
+}
+
 const getApi = {
 	allRooms,
 	bookings: allPopulatedBookings
