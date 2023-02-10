@@ -1,8 +1,6 @@
 // create new rooms
 import { useState } from "react";
 import Footer from "../../../partials/footer/Footer";
-import Toolbar from "../../components/toolbar/Toolbar";
-import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 import Row from "../../../components/row/Row";
 import Col from "../../../components/col/Col";
 import Input from "../../../components/forms/Input.";
@@ -14,6 +12,8 @@ import { Link } from "react-router-dom";
 import handleChange from "./functions/handleChange";
 import handleMediaChange from "./functions/handleMediaChange";
 import handleFormSubmit from "./functions/handleSubmit";
+import Breadcrumb from "../../../components/breadcrumb/Breadcrumb";
+import Toolbar from "../../../components/toolbar/Toolbar";
 
 export default function AddRoom() {
 	const [room, setRoom] = useState({

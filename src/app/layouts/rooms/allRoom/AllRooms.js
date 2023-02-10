@@ -1,16 +1,16 @@
 // Rooms
 import { useEffect, useState } from "react";
 import Footer from "../../../partials/footer/Footer";
-import DropDownBtn from "../../components/dropDownBtn/DropDownBtn";
-import DropDownItem from "../../components/dropDownBtn/components/DropDownItems";
-import Toolbar from "../../components/toolbar/Toolbar";
-import { FireIcon, PlusIcon, SheldIcon, UploadCloudIcon, UserAddIcon, WidgetIcon } from "../../../icons/Icons";
-import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
-import Table from "../../components/table/Table";
-import TableHead from "../../components/table/components/tableHead/TableHead";
+import { PlusIcon, UserAddIcon } from "../../../icons/Icons";
 import { allRooms } from "../../../../api/get";
 import RoomList from "./components/RoomList";
 import { setRoomChangeContext } from "../../../context/allContext";
+import Toolbar from "../../../components/toolbar/Toolbar";
+import Breadcrumb from "../../../components/breadcrumb/Breadcrumb";
+import DropDownBtn from "../../../components/dropDownBtn/DropDownBtn";
+import DropDownItem from "../../../components/dropDownBtn/components/DropDownItems";
+import Table from "../../../components/Tables/Table1/Table";
+import TableHead from "../../../components/Tables/Table1/components/tableHead/TableHead";
 
 export default function AllRooms() {
 	const [isLoading, setIsLoading] = useState(false);
@@ -50,14 +50,15 @@ export default function AllRooms() {
 						<div>
 							<DropDownBtn name="Actions" buttonClass="btn btn-sm btn-gray-800 d-inline-flex align-items-center dropdown-toggle" icon={<PlusIcon className="icon icon-xs me-2" />} >
 								<DropDownItem name="Add Room" link="/rooms/add" icon={<UserAddIcon className="dropdown-icon text-gray-400 me-2" />} />
-								<DropDownItem name="Add Widget" icon={<WidgetIcon className="dropdown-icon text-gray-400 me-2" />} />
+								{/* <DropDownItem name="Add Widget" icon={<WidgetIcon className="dropdown-icon text-gray-400 me-2" />} />
 								<DropDownItem name="Upload Files" icon={<UploadCloudIcon className="dropdown-icon text-gray-400 me-2" />} />
 								<DropDownItem name="Preview Security" icon={<SheldIcon className="dropdown-icon text-gray-400 me-2" />} />
 								<div role="separator" className="dropdown-divider my-1"></div>
-								<DropDownItem name="Upgrade to Pro" icon={<FireIcon className="dropdown-icon text-danger me-2" />} />
+								<DropDownItem name="Upgrade to Pro" icon={<FireIcon className="dropdown-icon text-danger me-2" />} /> */}
 							</DropDownBtn>
 						</div>
-						<div className="btn-group ms-2 ms-lg-3">
+						{/* NOTE: Added d-none */}
+						<div className="btn-group ms-2 ms-lg-3 d-none">
 							<button type="button" className="btn btn-sm btn-outline-gray-600">Share</button>
 							<button type="button" className="btn btn-sm btn-outline-gray-600">Export</button>
 						</div>

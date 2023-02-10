@@ -1,7 +1,6 @@
 // sales chart
-
 import { useEffect, useState } from "react";
-import trackingFunction from "../../../functions/tracking";
+import trackingFunction from "../../functions/tracking";
 import drawBarChat from "./functions/BarChat";
 
 export default function SalesChat() {

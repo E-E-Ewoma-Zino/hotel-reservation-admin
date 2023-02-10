@@ -1,10 +1,11 @@
 // general components for all layouts
 
-import { Logout, MessageIcon, ProfileIcon, SettingsIcon, SupportIcon } from "../../../icons/Icons";
+import { Logout, MessageIcon, ProfileIcon, SettingsIcon, SupportIcon } from "../../icons/Icons";
 
 function Toolbar() {
 	return (
-		<nav className="navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
+		// TODO: Remove the display none
+		<nav className="d-none navbar navbar-top navbar-expand navbar-dashboard navbar-dark ps-0 pe-2 pb-0">
 			<div className="container-fluid px-0">
 				<div className="d-flex justify-content-between w-100" id="navbarSupportedContent">
 					<div className="d-flex align-items-center">

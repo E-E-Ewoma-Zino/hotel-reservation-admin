@@ -1,7 +1,6 @@
 // Breadcrumb link
 import { Link } from "react-router-dom";
-
-import { HomeIcon } from "../../../../icons/Icons";
+import { HomeIcon } from "../../../icons/Icons";
 
 export default function CrumbLink({ name = "", icon, link }) {
 	const pathname = window.location.pathname;

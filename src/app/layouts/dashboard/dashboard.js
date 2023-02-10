@@ -1,15 +1,15 @@
 // dashboard
+import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
+import SalesChat from "../../components/chats/SalesChat";
 import Col from "../../components/col/Col";
+import DropDownItem from "../../components/dropDownBtn/components/DropDownItems";
+import DropDownBtn from "../../components/dropDownBtn/DropDownBtn";
 import Row from "../../components/row/Row";
-import { UserAddIcon, ChartUpIcon, RevenueIcon, UserGroupIcon, FireIcon, PlusIcon, SheldIcon, UploadCloudIcon, WidgetIcon } from "../../icons/Icons";
+import Table from "../../components/Tables/Table2/table";
+import Toolbar from "../../components/toolbar/Toolbar";
+import { UserAddIcon, FireIcon, PlusIcon, SheldIcon, UploadCloudIcon, WidgetIcon } from "../../icons/Icons";
 import Footer from "../../partials/footer/Footer";
-import Breadcrumb from "../components/breadcrumb/Breadcrumb";
-import DropDownItem from "../components/dropDownBtn/components/DropDownItems";
-import DropDownBtn from "../components/dropDownBtn/DropDownBtn";
-import Toolbar from "../components/toolbar/Toolbar";
-import SalesChat from "./components/chats/SalesChat";
-import DetailsCard from "./components/detailsCard/DetailsCard";
-import Table from "./components/table/table";
+
 
 export default function Dashboard() {
 	return (

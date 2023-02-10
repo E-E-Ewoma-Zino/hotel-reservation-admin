@@ -1,6 +1,7 @@
 // Side bar
 
-import { ComponentsIcon, DashboardIcon, PageExamplesIcon, SettingsIcon, TablesIcon, TransactionsIcon } from "../../icons/Icons";
+import { Link } from "react-router-dom";
+import { ChartUpIcon, DashboardIcon, SettingsIcon, TransactionsIcon } from "../../icons/Icons";
 import SideLink from "./components/sideLink";
 
 export default function SideBar() {
@@ -9,23 +10,23 @@ export default function SideBar() {
 			<div className="sidebar-inner px-4 pt-3">
 				<ul className="nav flex-column pt-3 pt-md-0">
 					<li className="nav-item">
-						<a href="../../index.html" className="nav-link d-flex align-items-center">
+						<Link to="/" className="nav-link d-flex align-items-center">
 							<span className="sidebar-icon">
 								<img src="../../assets/img/brand/light.svg" height="20" width="20" alt="Volt Logo" />
 							</span>
-							<span className="mt-1 ms-1 sidebar-text">Volt Overview</span>
-						</a>
+							<span className="mt-1 ms-1 sidebar-text">My Hotel</span>
+						</Link>
 					</li>
 
 					<SideLink name="Dashboard" link="/dashboard" icon={<DashboardIcon className="icon icon-xs me-2" />} />
 
 					<SideLink name="Rooms" link="/rooms" icon={<SettingsIcon className="icon icon-xs me-2" />} />
 
-					<SideLink name="Bookings" link="/bookings" icon={<TransactionsIcon className="icon icon-xs me-2" />} />
+					<SideLink name="Reservations" link="/reservations" icon={<TransactionsIcon className="icon icon-xs me-2" />} />
 
-					<SideLink name="Settings" link="/settings" icon={<SettingsIcon className="icon icon-xs me-2" />} />
+					<SideLink name="Tracking" link="/tracking" icon={<ChartUpIcon className="icon icon-xs me-2" />} />
 
-					<SideLink name="Tables" icon={<TablesIcon className="icon icon-xs me-2"  />} dropdown={true} list={(
+					{/* <SideLink name="Tables" icon={<TablesIcon className="icon icon-xs me-2"  />} dropdown={true} list={(
 						<SideLink name="Bootstrap Tables" link="/me" />
 					)} />
 					
@@ -52,7 +53,7 @@ export default function SideBar() {
 							<SideLink name="Modals" />
 							<SideLink name="Typography" />
 						</>
-					)} />
+					)} /> */}
 				</ul>
 			</div>
 		</nav>

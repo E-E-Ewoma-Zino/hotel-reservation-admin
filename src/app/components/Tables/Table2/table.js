@@ -1,9 +1,9 @@
 // table for dashboard
 import { useEffect, useState } from "react";
+import { allUpcomingReservations } from "../../../../api/get";
 import TableBody from "./components/TableBody";
 import TableHead from "./components/TableHead";
 import TableTitle from "./components/TableTitle";
-import { allUpcomingReservations } from "../../../../../api/get";
 
 export default function Table() {
 	const [isLoading, setIsLoading] = useState(true);

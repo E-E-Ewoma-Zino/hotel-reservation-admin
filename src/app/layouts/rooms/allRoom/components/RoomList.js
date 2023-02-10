@@ -1,13 +1,13 @@
 // This component return a list of rooms
 import { useContext } from "react";
-import DropDownItem from "../../../components/dropDownBtn/components/DropDownItems";
-import DropDownBtn from "../../../components/dropDownBtn/DropDownBtn";
 import { FireIcon, UserAddIcon, WidgetIcon } from "../../../../icons/Icons";
-import TableRow from "../../../components/table/components/tableRow/TableRow";
-import TableColumn from "../../../components/table/components/tableColumn/TableColumn";
 import { deleteRoom } from "../../../../../api/delete";
 import { setRoomChangeContext } from "../../../../context/allContext";
 import host from "../../../../../constants/host";
+import TableRow from "../../../../components/Tables/Table1/components/tableRow/TableRow";
+import TableColumn from "../../../../components/Tables/Table1/components/tableColumn/TableColumn";
+import DropDownBtn from "../../../../components/dropDownBtn/DropDownBtn";
+import DropDownItem from "../../../../components/dropDownBtn/components/DropDownItems";
 
 export default function RoomList({ id, name, price, imgSrc, isAvaliable, type }) {
 	const UseSetRoomChangeContext = useContext(setRoomChangeContext);

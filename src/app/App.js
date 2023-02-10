@@ -20,10 +20,11 @@ function App() {
 					<Route path="add" element={<AddRoom />} />
 					<Route path="edit" element={<EditRoom />} />
 				</Route>
-				<Route path="/bookings">
+				<Route path="/reservations">
 					<Route index element={<Bookings />} />
 					<Route path="add" element={<Bookings />} />
 				</Route>
+				<Route path="/tracking" element={<Dashboard />} />
 				<Route path="*" element={<h1>404 No page here</h1>} />
 			</Routes>
 		</BrowserRouter>

@@ -1,8 +1,7 @@
 // Filter for the table
-
-import { SearchIcon, SettingsIcon, CheckIcon } from "../../../../../icons/Icons";
-import DropDownItem from "../../../dropDownBtn/components/DropDownItems";
-import DropDownBtn from "../../../dropDownBtn/DropDownBtn";
+import { CheckIcon, SearchIcon, SettingsIcon } from "../../../../../icons/Icons";
+import DropDownItem from "../../../../dropDownBtn/components/DropDownItems";
+import DropDownBtn from "../../../../dropDownBtn/DropDownBtn";
 
 export default function TableFilter() {
 	return (

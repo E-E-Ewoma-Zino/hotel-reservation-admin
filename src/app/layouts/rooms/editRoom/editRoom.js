@@ -1,8 +1,6 @@
 // create new rooms
 import { useState, useEffect } from "react";
 import Footer from "../../../partials/footer/Footer";
-import Toolbar from "../../components/toolbar/Toolbar";
-import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 import Row from "../../../components/row/Row";
 import Col from "../../../components/col/Col";
 import Input from "../../../components/forms/Input.";
@@ -16,9 +14,11 @@ import handleChange from "./functions/handleChange";
 import handleMediaChange from "./functions/handleMediaChange";
 import handleFormSubmit from "./functions/handleSubmit";
 import host from "../../../../constants/host";
-import DropDownBtn from "../../components/dropDownBtn/DropDownBtn";
-import DropDownItem from "../../components/dropDownBtn/components/DropDownItems";
 import handleDeleteMedia from "./functions/handleDeleteMedia";
+import Toolbar from "../../../components/toolbar/Toolbar";
+import Breadcrumb from "../../../components/breadcrumb/Breadcrumb";
+import DropDownBtn from "../../../components/dropDownBtn/DropDownBtn";
+import DropDownItem from "../../../components/dropDownBtn/components/DropDownItems";
 
 export default function EditRoom() {
 	const [updateCount, setUpdateCount] = useState(0);

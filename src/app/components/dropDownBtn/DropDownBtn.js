@@ -1,6 +1,6 @@
 // This component is a button which allows a list of options to be Added
 
-import Button from "../../../components/buttons/buttons";
+import Button from "../buttons/buttons";
 
 export default function DropDownBtn({ name, buttonClass, dropDownMenuClass, dropdownclass, icon, children }) {
 	const menuclass = dropDownMenuClass || "dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1";

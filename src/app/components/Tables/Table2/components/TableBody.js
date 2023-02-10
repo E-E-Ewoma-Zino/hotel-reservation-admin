@@ -1,9 +1,9 @@
 // the body of the table
 
 import moment from "moment/moment";
-import { FireIcon, UserAddIcon, WidgetIcon } from "../../../../../icons/Icons";
-import DropDownItem from "../../../../components/dropDownBtn/components/DropDownItems";
-import DropDownBtn from "../../../../components/dropDownBtn/DropDownBtn";
+import { FireIcon, UserAddIcon, WidgetIcon } from "../../../../icons/Icons";
+import DropDownItem from "../../../dropDownBtn/components/DropDownItems";
+import DropDownBtn from "../../../dropDownBtn/DropDownBtn";
 
 export default function TableBody({ bodyContent = {} }) {
 	return (

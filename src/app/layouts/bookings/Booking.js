@@ -1,15 +1,15 @@
 // all bookings
 import { useState, useEffect } from "react";
 import Footer from "../../partials/footer/Footer";
-import DropDownBtn from "../components/dropDownBtn/DropDownBtn";
-import DropDownItem from "../components/dropDownBtn/components/DropDownItems";
-import Toolbar from "../components/toolbar/Toolbar";
 import { FireIcon, PlusIcon, SheldIcon, UploadCloudIcon, UserAddIcon, WidgetIcon } from "../../icons/Icons";
-import Breadcrumb from "../components/breadcrumb/Breadcrumb";
-import Table from "../components/table/Table";
-import TableHead from "../components/table/components/tableHead/TableHead";
 import { allPopulatedBookings } from "../../../api/get";
 import BookingList from "./components/BookingList";
+import Toolbar from "../../components/toolbar/Toolbar";
+import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
+import DropDownBtn from "../../components/dropDownBtn/DropDownBtn";
+import DropDownItem from "../../components/dropDownBtn/components/DropDownItems";
+import TableHead from "../../components/Tables/Table2/components/TableHead";
+import Table from "../../components/Tables/Table2/table";
 
 export default function Bookings() {
 	const [isLoading, setIsLoading] = useState(true);

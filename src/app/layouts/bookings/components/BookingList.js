@@ -2,12 +2,11 @@
 
 import { deleteRoom } from "../../../../api/delete";
 import host from "../../../../constants/host";
+import DropDownItem from "../../../components/dropDownBtn/components/DropDownItems";
+import DropDownBtn from "../../../components/dropDownBtn/DropDownBtn";
+import TableColumn from "../../../components/Tables/Table1/components/tableColumn/TableColumn";
+import TableRow from "../../../components/Tables/Table1/components/tableRow/TableRow";
 import { FireIcon, UserAddIcon, WidgetIcon } from "../../../icons/Icons";
-import DropDownItem from "../../components/dropDownBtn/components/DropDownItems";
-import DropDownBtn from "../../components/dropDownBtn/DropDownBtn";
-import TableColumn from "../../components/table/components/tableColumn/TableColumn";
-import TableRow from "../../components/table/components/tableRow/TableRow";
-
 
 export default function BookingList({ id, user, room, payed, adult, children, start, end }) {
 
