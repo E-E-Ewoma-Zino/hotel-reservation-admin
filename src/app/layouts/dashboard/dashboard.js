@@ -1,4 +1,7 @@
 // dashboard
+import moment from "moment";
+import { useEffect, useState } from "react";
+import { allUpcomingReservations } from "../../../api/get";
 import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 import SalesChat from "../../components/chats/SalesChat";
 import Col from "../../components/col/Col";
@@ -12,6 +15,20 @@ import Footer from "../../partials/footer/Footer";
 
 
 export default function Dashboard() {
+	const [isLoading, setIsLoading] = useState(true);
+	const [reservations, setReservations] = useState([]);
+
+	useEffect(() => {
+		async function getBookings() {
+			const allReservations = await (await allUpcomingReservations()).data;
+			setReservations(allReservations.data);
+
+			setIsLoading(false);
+		}
+
+		getBookings();
+	}, [reservations.length]);
+
 	return (
 		<main className="content">
 			<Toolbar />
@@ -34,7 +51,7 @@ export default function Dashboard() {
 				</DropDownBtn>
 			</div>
 
-			<Row className="">
+			<Row>
 				<Col size="col-12 mb-4">
 					<SalesChat />
 				</Col>
@@ -50,7 +67,28 @@ export default function Dashboard() {
 			</Row>
 			<Row>
 				<Col size="col-12 mb-4">
-					<Table />
+					<Table
+						title="Upcoming Reservations"
+						link={{ to: "/reservations", text: "See All" }}
+						head={["User", "Room", "Arrival", "Departure", "Reserved On", "Actions"]}>
+						{
+							isLoading? "Loading...": reservations.map((reserve, index) =>
+								<tr key={index}>
+									<th className="text-gray-900" scope="row">{reserve.user?.firstname}</th>
+									<td className="fw-bolder text-gray-500">{reserve.room?.type}</td>
+									<td className="fw-bolder text-gray-500">{moment(reserve.start).startOf('day').fromNow()}</td>
+									<td className="fw-bolder text-gray-500">{moment(reserve.end).format('LL')}</td>
+									<td className="fw-bolder text-gray-500">{moment(reserve.createdAt).startOf('seconds').fromNow()}</td>
+									<td className="fw-bolder text-gray-500">
+										<DropDownBtn name="Actions" buttonClass="btn btn-sm btn-primary text-light d-inline-flex align-items-center dropdown-toggle">
+											<DropDownItem name="View" link={`/reservations#${reserve._id}?id=${reserve._id}`} icon={<WidgetIcon className="dropdown-icon text-gray-400 me-2" />} />
+											<DropDownItem name="Edit" link={""} icon={<UserAddIcon className="dropdown-icon text-gray-400 me-2" />} />
+											<DropDownItem name="Cancel" icon={<FireIcon className="dropdown-icon text-danger me-2" click="" />} />
+										</DropDownBtn>
+									</td>
+								</tr>)
+						}
+					</Table>
 				</Col>
 			</Row>
 			<Footer />

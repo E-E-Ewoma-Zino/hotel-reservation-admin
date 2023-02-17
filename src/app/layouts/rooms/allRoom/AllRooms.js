@@ -70,8 +70,8 @@ export default function AllRooms() {
 					<TableHead title="Name" key={1} />,
 					<TableHead title="Type" key={2} />,
 					<TableHead title="Cost" key={3} />,
-					<TableHead title="Avaliable" key={4} />,
-					<TableHead title="Action" key={5} />
+					// <TableHead title="Avaliable" key={4} />,
+					<TableHead title="Action" key={4} />
 				]}>
 					{
 						isLoading ? <tr><td>Loading...</td></tr> :

@@ -10,8 +10,13 @@ export async function deleteRoomMedia(data){
 	return await axios.delete(host + "rooms/removeMedia", { data });
 }
 
+export async function deleteBooking(id){
+	return await axios.delete(host + "bookings/remove", { data: { id } });
+}
+
 const deleteApi = {
 	deleteRoom,
+	deleteBooking,
 	deleteRoomMedia
 }
 

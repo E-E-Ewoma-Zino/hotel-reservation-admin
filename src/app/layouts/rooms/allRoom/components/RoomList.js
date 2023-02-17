@@ -1,6 +1,6 @@
 // This component return a list of rooms
 import { useContext } from "react";
-import { FireIcon, UserAddIcon, WidgetIcon } from "../../../../icons/Icons";
+import { FireIcon, UserAddIcon } from "../../../../icons/Icons";
 import { deleteRoom } from "../../../../../api/delete";
 import { setRoomChangeContext } from "../../../../context/allContext";
 import host from "../../../../../constants/host";
@@ -55,12 +55,12 @@ export default function RoomList({ id, name, price, imgSrc, isAvaliable, type })
 			<TableColumn>
 				<span className="fw-bold">${price}</span>
 			</TableColumn>
-			<TableColumn>
+			{/* <TableColumn>
 				<span className={isAvaliable ? "fw-bold text-success" : "fw-bold text-danger"}>{isAvaliable.toString()}</span>
-			</TableColumn>
+			</TableColumn> */}
 			<TableColumn>
 				<DropDownBtn name="Actions" buttonClass="btn btn-sm btn-link d-inline-flex align-items-center dropdown-toggle">
-					<DropDownItem name="View" icon={<WidgetIcon className="dropdown-icon text-gray-400 me-2" />} />
+					{/* <DropDownItem name="View" icon={<WidgetIcon className="dropdown-icon text-gray-400 me-2" />} /> */}
 					<DropDownItem name="Edit" link={"/rooms/edit?id=" + id} icon={<UserAddIcon className="dropdown-icon text-gray-400 me-2" />} />
 					<DropDownItem name="Delete" icon={<FireIcon className="dropdown-icon text-danger me-2" />} click={() => handleDeleteRoom(id, name)} />
 				</DropDownBtn>

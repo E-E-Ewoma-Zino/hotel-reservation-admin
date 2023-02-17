@@ -8,8 +8,8 @@ import Toolbar from "../../components/toolbar/Toolbar";
 import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 import DropDownBtn from "../../components/dropDownBtn/DropDownBtn";
 import DropDownItem from "../../components/dropDownBtn/components/DropDownItems";
-import TableHead from "../../components/Tables/Table2/components/TableHead";
-import Table from "../../components/Tables/Table2/table";
+import Table from "../../components/Tables/Table1/Table";
+import TableHead from "../../components/Tables/Table1/components/tableHead/TableHead";
 
 export default function Bookings() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -34,8 +34,8 @@ export default function Bookings() {
 			<div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
 				<div className="d-block mb-4 mb-md-0">
 					<Breadcrumb />
-					<h2 className="h4">All Rooms</h2>
-					<p className="mb-0">Perform rooms modfications here.</p>
+					<h2 className="h4">All Reservations</h2>
+					<p className="mb-0">View all reservations here.</p>
 				</div>
 				<div className="btn-toolbar mb-2 mb-md-0">
 					<div>
@@ -48,7 +48,7 @@ export default function Bookings() {
 							<DropDownItem name="Upgrade to Pro" icon={<FireIcon className="dropdown-icon text-danger me-2" />} />
 						</DropDownBtn>
 					</div>
-					<div className="btn-group ms-2 ms-lg-3">
+					<div className="btn-group d-none ms-2 ms-lg-3">
 						<button type="button" className="btn btn-sm btn-outline-gray-600">Share</button>
 						<button type="button" className="btn btn-sm btn-outline-gray-600">Export</button>
 					</div>
@@ -56,19 +56,19 @@ export default function Bookings() {
 			</div>
 
 			<Table head={[
-				<TableHead title="#" key={0} />,
-				<TableHead title="User" key={1} />,
-				<TableHead title="Room" key={2} />,
-				<TableHead title="Payed" key={3} />,
-				<TableHead title="Adult" key={4} />,
-				<TableHead title="Children" key={5} />,
-				<TableHead title="Start" key={6} />,
-				<TableHead title="End" key={7} />,
-				<TableHead title="Actions" key={8} />
-			]}>
+					<TableHead title="#" key={0} />,
+					<TableHead title="User" key={1} />,
+					<TableHead title="Room" key={2} />,
+					<TableHead title="Payed" key={3} />,
+					<TableHead title="Adult" key={4} />,
+					<TableHead title="Children" key={5} />,
+					<TableHead title="Start" key={6} />,
+					<TableHead title="End" key={7} />,
+					<TableHead title="Actions" key={8} />
+				]}>
 				{
 					isLoading ? <tr><td>Loading...</td></tr> :
-						bookings.map(book => <BookingList key={book._id} id={book._id} user={book.user} room={book.room} payed={book.payed} adult={book.noOfAdults} children={book.noOfChildren} start={book.start} end={book.end} />)
+						bookings.map((book, index) => <BookingList index={index} key={book._id} id={book._id} user={book.user} room={book.room} payed={book.payed} adult={book.noOfAdults} children={book.noOfChildren} start={book.start} end={book.end} />)
 				}
 			</Table>
 			<Footer />

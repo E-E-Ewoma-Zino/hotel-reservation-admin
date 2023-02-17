@@ -1,24 +1,22 @@
 // This component return a list of rooms
-
-import { deleteRoom } from "../../../../api/delete";
-import host from "../../../../constants/host";
-import DropDownItem from "../../../components/dropDownBtn/components/DropDownItems";
+import { FireIcon } from "../../../icons/Icons";
+import { deleteBooking } from "../../../../api/delete";
 import DropDownBtn from "../../../components/dropDownBtn/DropDownBtn";
-import TableColumn from "../../../components/Tables/Table1/components/tableColumn/TableColumn";
+import DropDownItem from "../../../components/dropDownBtn/components/DropDownItems";
 import TableRow from "../../../components/Tables/Table1/components/tableRow/TableRow";
-import { FireIcon, UserAddIcon, WidgetIcon } from "../../../icons/Icons";
+import TableColumn from "../../../components/Tables/Table1/components/tableColumn/TableColumn";
 
-export default function BookingList({ id, user, room, payed, adult, children, start, end }) {
+export default function BookingList({ id, index, user, room, payed, adult, children, start, end }) {
 
-	async function handleDeleteRoom(id, name) {
+	async function handleDeleteRoom(id) {
 		try {
-			const deletedRoom = await deleteRoom(id);
+			const deletedRoom = await deleteBooking(id);
 			console.log("deleted Room", deletedRoom.data);
 
 			window.swalWithBootstrapButtons.fire({
 				icon: 'success',
-				title: 'Deleted Room',
-				text: "Successfully deleted room " + name,
+				title: 'Deleted Reservation',
+				text: "Successfully deleted reservation",
 				showConfirmButton: true,
 				timer: 1000
 			});
@@ -27,7 +25,7 @@ export default function BookingList({ id, user, room, payed, adult, children, st
 				icon: 'error',
 				title: 'Oops...',
 				text: 'Something went wrong!',
-				footer: '<a href>Why do I have this issue?</a>'
+				footer: '<a href="#x">Why do I have this issue?</a>'
 			});
 			console.error("Error from create room:", err);
 		}
@@ -35,10 +33,9 @@ export default function BookingList({ id, user, room, payed, adult, children, st
 
 	return (
 		<TableRow id={id}>
-			<TableColumn>
-				<a href="#x" className="fw-bold">
-					<img src={ host + room?.images[0]?.path } className="img-fluid rounded-circle" alt={room?.name} width="50em" height="50em" />
-				</a>
+			<TableColumn className="p-0">
+				{/* <img src={ host + room?.images[0]?.path } className="img-fluid rounded-circle" alt={room?.name} /> */}
+				<span className="fw-normal px-4">{index + 1}</span>
 			</TableColumn>
 			<TableColumn>
 				<span className="fw-normal">{user?.firstname}</span>
@@ -63,12 +60,11 @@ export default function BookingList({ id, user, room, payed, adult, children, st
 			</TableColumn>
 			<TableColumn>
 				<DropDownBtn name="Actions" buttonClass="btn btn-sm btn-link d-inline-flex align-items-center dropdown-toggle">
-					<DropDownItem name="View" icon={<WidgetIcon className="dropdown-icon text-gray-400 me-2" />} />
-					<DropDownItem name="Edit" icon={<UserAddIcon className="dropdown-icon text-gray-400 me-2" />} />
-					<DropDownItem name="Cancel" icon={<FireIcon className="dropdown-icon text-danger me-2" />} click={() => handleDeleteRoom(id, room?.name)} />
+					{/* <DropDownItem name="View" icon={<WidgetIcon className="dropdown-icon text-gray-400 me-2" />} />
+					<DropDownItem name="Edit" icon={<UserAddIcon className="dropdown-icon text-gray-400 me-2" />} /> */}
+					<DropDownItem name="Cancel" icon={<FireIcon className="dropdown-icon text-danger me-2" />} click={() => handleDeleteRoom(id)} />
 				</DropDownBtn>
 			</TableColumn>
 		</TableRow>
 	);
 }
-

@@ -1,8 +1,8 @@
 // table column
 
-export default function TableColumn ({children}) {
+export default function TableColumn ({className, children}) {
 	return (
-		<td style={{ verticalAlign: "middle" }}>
+		<td className={className} style={{ verticalAlign: "middle" }}>
 			{children}
 		</td>
 	);

@@ -1,35 +1,16 @@
 // table for dashboard
-import { useEffect, useState } from "react";
-import { allUpcomingReservations } from "../../../../api/get";
-import TableBody from "./components/TableBody";
 import TableHead from "./components/TableHead";
 import TableTitle from "./components/TableTitle";
 
-export default function Table() {
-	const [isLoading, setIsLoading] = useState(true);
-	const [reservations, setReservations] = useState([]);
-
-	useEffect(() => {
-		async function getBookings() {
-			const allReservations = await (await allUpcomingReservations()).data;
-			setReservations(allReservations);
-			
-			setIsLoading(false);
-		}
-		
-		getBookings();
-	}, [reservations.length]);
-	
+export default function Table({ title, link, head,  children }) {	
 	return (
 		<div className="card border-0 shadow">
-			<TableTitle topic="Upcoming Reservations" />
+			<TableTitle topic={title} link={link}/>
 
 			<div className="table-responsive">
 				<table className="table align-items-center table-flush">
-					<TableHead head={["User", "Room", "Arrival", "Departure", "Reserved On", "Actions"]} />
-					{
-						!isLoading && reservations.data.map((reserve, index) => reserve && <TableBody key={index} bodyContent={reserve} />)
-					}
+					<TableHead head={head} />
+					{children}
 				</table>
 			</div>
 		</div>

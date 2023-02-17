@@ -2,7 +2,7 @@
 
 import { Link } from "react-router-dom";
 
-export default function TableTitle({ topic }) {
+export default function TableTitle({ topic, link }) {
 	return (
 		<div className="card-header">
 			<div className="row align-items-center">
@@ -10,7 +10,7 @@ export default function TableTitle({ topic }) {
 					<h2 className="fs-5 fw-bold mb-0">{topic}</h2>
 				</div>
 				<div className="col text-end">
-					<Link to="/reservations" className="btn btn-sm btn-primary">See All</Link>
+					<Link to={link.to} className="btn btn-sm btn-primary">{link.text}</Link>
 				</div>
 			</div>
 		</div>
