@@ -2,9 +2,9 @@
 import axios from "axios";
 import host from "../constants/host";
 
-export async function allRooms(){
+export async function allRooms(type = ""){
 	try {
-		return await axios.get(host + "rooms/all");
+		return await axios.get(host + "rooms/all?type=" + type);
 	} catch (err) {
 		console.error("Error in api", err);
 		return null;
