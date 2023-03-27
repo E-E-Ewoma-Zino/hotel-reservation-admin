@@ -12,6 +12,7 @@ import TableHead from "../../components/Tables/Table1/components/tableHead/Table
 import TableColumn from "../../components/Tables/Table1/components/tableColumn/TableColumn";
 import { useLocation } from "react-router-dom";
 import TableTitle from "../../components/Tables/Table2/components/TableTitle";
+import SalesChat from "../../components/chats/SalesChat";
 
 export default function TrackingPage() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -57,6 +58,9 @@ export default function TrackingPage() {
 			</div>
 
 			<Row>
+				<Col size="col-12 mb-4">
+					<SalesChat />
+				</Col>
 				<Col>
 					<TableTitle topic={"Track payment by " + property} link={{ to: location.search === "?property=type" ? "?property=name" : "?property=type", text: property === "name" ? "By Type" : "By Name" }} />
 					<Table head={[

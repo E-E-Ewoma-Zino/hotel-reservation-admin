@@ -5,14 +5,17 @@ import DropDownBtn from "../../../components/dropDownBtn/DropDownBtn";
 import DropDownItem from "../../../components/dropDownBtn/components/DropDownItems";
 import TableRow from "../../../components/Tables/Table1/components/tableRow/TableRow";
 import TableColumn from "../../../components/Tables/Table1/components/tableColumn/TableColumn";
+import { useEffect, useState } from "react";
 
 export default function BookingList({ id, index, user, room, payed, adult, children, start, end }) {
+	const [cancelReservation, setCancelReservation] = useState(0);
 
 	async function handleDeleteRoom(id) {
 		try {
 			const deletedRoom = await deleteBooking(id);
 			console.log("deleted Room", deletedRoom.data);
 
+			setCancelReservation(pre => pre = pre + 1);
 			window.swalWithBootstrapButtons.fire({
 				icon: 'success',
 				title: 'Deleted Reservation',
@@ -30,6 +33,10 @@ export default function BookingList({ id, index, user, room, payed, adult, child
 			console.error("Error from create room:", err);
 		}
 	}
+
+	useEffect(() => {
+		console.log("updating...", cancelReservation);
+	}, [cancelReservation]);
 
 	return (
 		<TableRow id={id}>

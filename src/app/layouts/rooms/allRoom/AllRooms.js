@@ -11,6 +11,8 @@ import DropDownBtn from "../../../components/dropDownBtn/DropDownBtn";
 import DropDownItem from "../../../components/dropDownBtn/components/DropDownItems";
 import Table from "../../../components/Tables/Table1/Table";
 import TableHead from "../../../components/Tables/Table1/components/tableHead/TableHead";
+import Button from "../../../components/buttons/buttons";
+import { Link } from "react-router-dom";
 
 export default function AllRooms() {
 	const [isLoading, setIsLoading] = useState(false);
@@ -34,7 +36,7 @@ export default function AllRooms() {
 		}
 		getAllRooms()
 	}, [roomChange]);
-	
+
 	return (
 		<setRoomChangeContext.Provider value={setRoomChange}>
 			<main className="content">
@@ -48,14 +50,10 @@ export default function AllRooms() {
 					</div>
 					<div className="btn-toolbar mb-2 mb-md-0">
 						<div>
-							<DropDownBtn name="Actions" buttonClass="btn btn-sm btn-gray-800 d-inline-flex align-items-center dropdown-toggle" icon={<PlusIcon className="icon icon-xs me-2" />} >
-								<DropDownItem name="Add Room" link="/rooms/add" icon={<UserAddIcon className="dropdown-icon text-gray-400 me-2" />} />
-								{/* <DropDownItem name="Add Widget" icon={<WidgetIcon className="dropdown-icon text-gray-400 me-2" />} />
-								<DropDownItem name="Upload Files" icon={<UploadCloudIcon className="dropdown-icon text-gray-400 me-2" />} />
-								<DropDownItem name="Preview Security" icon={<SheldIcon className="dropdown-icon text-gray-400 me-2" />} />
-								<div role="separator" className="dropdown-divider my-1"></div>
-								<DropDownItem name="Upgrade to Pro" icon={<FireIcon className="dropdown-icon text-danger me-2" />} /> */}
-							</DropDownBtn>
+							<Link to={"/rooms/add"} className="btn btn-sm btn-gray-800">
+								<PlusIcon className="icon icon-xs me-2" />
+								Add Room
+							</Link>
 						</div>
 						{/* NOTE: Added d-none */}
 						<div className="btn-group ms-2 ms-lg-3 d-none">
