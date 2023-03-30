@@ -1,17 +1,14 @@
 // Rooms
 import { useEffect, useState } from "react";
 import Footer from "../../../partials/footer/Footer";
-import { PlusIcon, UserAddIcon } from "../../../icons/Icons";
+import { PlusIcon } from "../../../icons/Icons";
 import { allRooms } from "../../../../api/get";
 import RoomList from "./components/RoomList";
 import { setRoomChangeContext } from "../../../context/allContext";
 import Toolbar from "../../../components/toolbar/Toolbar";
 import Breadcrumb from "../../../components/breadcrumb/Breadcrumb";
-import DropDownBtn from "../../../components/dropDownBtn/DropDownBtn";
-import DropDownItem from "../../../components/dropDownBtn/components/DropDownItems";
 import Table from "../../../components/Tables/Table1/Table";
 import TableHead from "../../../components/Tables/Table1/components/tableHead/TableHead";
-import Button from "../../../components/buttons/buttons";
 import { Link } from "react-router-dom";
 
 export default function AllRooms() {

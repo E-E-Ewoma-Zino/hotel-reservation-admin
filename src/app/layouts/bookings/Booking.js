@@ -1,15 +1,14 @@
 // all bookings
 import { useState, useEffect } from "react";
 import Footer from "../../partials/footer/Footer";
-import { FireIcon, PlusIcon, SheldIcon, UploadCloudIcon, UserAddIcon, WidgetIcon } from "../../icons/Icons";
+import { PlusIcon } from "../../icons/Icons";
 import { allPopulatedBookings } from "../../../api/get";
 import BookingList from "./components/BookingList";
 import Toolbar from "../../components/toolbar/Toolbar";
 import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
-import DropDownBtn from "../../components/dropDownBtn/DropDownBtn";
-import DropDownItem from "../../components/dropDownBtn/components/DropDownItems";
 import Table from "../../components/Tables/Table1/Table";
 import TableHead from "../../components/Tables/Table1/components/tableHead/TableHead";
+import { Link } from "react-router-dom";
 
 export default function Bookings() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -39,14 +38,10 @@ export default function Bookings() {
 				</div>
 				<div className="btn-toolbar mb-2 mb-md-0">
 					<div>
-						<DropDownBtn name="Actions" buttonClass="btn btn-sm btn-gray-800 d-inline-flex align-items-center dropdown-toggle" icon={<PlusIcon className="icon icon-xs me-2" />} >
-							<DropDownItem name="New Booking" link="/bookings/add" icon={<UserAddIcon className="dropdown-icon text-gray-400 me-2" />} />
-							<DropDownItem name="Add Widget" icon={<WidgetIcon className="dropdown-icon text-gray-400 me-2" />} />
-							<DropDownItem name="Upload Files" icon={<UploadCloudIcon className="dropdown-icon text-gray-400 me-2" />} />
-							<DropDownItem name="Preview Security" icon={<SheldIcon className="dropdown-icon text-gray-400 me-2" />} />
-							<div role="separator" className="dropdown-divider my-1"></div>
-							<DropDownItem name="Upgrade to Pro" icon={<FireIcon className="dropdown-icon text-danger me-2" />} />
-						</DropDownBtn>
+						<Link to={"/reservations/add"} className="btn btn-sm btn-gray-800">
+							<PlusIcon className="icon icon-xs me-2" />
+							New Reservation
+						</Link>
 					</div>
 					<div className="btn-group d-none ms-2 ms-lg-3">
 						<button type="button" className="btn btn-sm btn-outline-gray-600">Share</button>
@@ -56,16 +51,16 @@ export default function Bookings() {
 			</div>
 
 			<Table head={[
-					<TableHead title="#" key={0} />,
-					<TableHead title="User" key={1} />,
-					<TableHead title="Room" key={2} />,
-					<TableHead title="Payed" key={3} />,
-					<TableHead title="Adult" key={4} />,
-					<TableHead title="Children" key={5} />,
-					<TableHead title="Start" key={6} />,
-					<TableHead title="End" key={7} />,
-					<TableHead title="Actions" key={8} />
-				]}>
+				<TableHead title="#" key={0} />,
+				<TableHead title="User" key={1} />,
+				<TableHead title="Room" key={2} />,
+				<TableHead title="Payed" key={3} />,
+				<TableHead title="Adult" key={4} />,
+				<TableHead title="Children" key={5} />,
+				<TableHead title="Start" key={6} />,
+				<TableHead title="End" key={7} />,
+				<TableHead title="Actions" key={8} />
+			]}>
 				{
 					isLoading ? <tr><td>Loading...</td></tr> :
 						bookings.map((book, index) => <BookingList index={index} key={book._id} id={book._id} user={book.user} room={book.room} payed={book.payed} adult={book.noOfAdults} children={book.noOfChildren} start={book.start} end={book.end} />)

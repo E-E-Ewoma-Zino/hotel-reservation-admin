@@ -8,6 +8,7 @@ import EditRoom from "./layouts/rooms/editRoom/editRoom";
 import AllRooms from "./layouts/rooms/allRoom/AllRooms";
 import AddRoom from "./layouts/rooms/addRoom/AddRoom";
 import TrackingPage from "./layouts/tracking/tracking";
+import NewBooking from "./layouts/bookings/NewBooking/NewBooking";
 
 function App() {
 	return (
@@ -24,7 +25,7 @@ function App() {
 				</Route>
 				<Route path="/reservations">
 					<Route index element={<Bookings />} />
-					<Route path="add" element={<Bookings />} />
+					<Route path="add" element={<NewBooking />} />
 				</Route>
 				<Route path="/tracking">
 					<Route index element={<TrackingPage />}/>

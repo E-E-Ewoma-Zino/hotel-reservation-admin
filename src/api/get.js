@@ -47,9 +47,20 @@ export async function trackedDetails(property = ""){
 	}
 }
 
+export async function getReservedDates(roomId){
+	if (!roomId) roomId = "63ef08d9e87073b6a7aced27";
+	try{
+		return await axios.get(host + "tracking/reserved?roomId=" + roomId);
+	}catch(err){
+		console.error("Error::", err);
+		return null;
+	}
+}
+
 const getApi = {
 	allRooms,
 	trackedDetails,
+	getReservedDates,
 	allUpcomingReservations,
 	bookings: allPopulatedBookings
 }
