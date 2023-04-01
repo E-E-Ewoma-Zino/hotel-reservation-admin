@@ -1,5 +1,5 @@
 // Return the host
 
-const host = "https://n3glhg-5004.csb.app/"
+const host = "http://localhost:5004/"
 
 export default host;

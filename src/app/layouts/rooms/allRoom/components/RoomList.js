@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { FireIcon, UserAddIcon } from "../../../../icons/Icons";
 import { deleteRoom } from "../../../../../api/delete";
 import { setRoomChangeContext } from "../../../../context/allContext";
-import host from "../../../../../constants/host";
 import TableRow from "../../../../components/Tables/Table1/components/tableRow/TableRow";
 import TableColumn from "../../../../components/Tables/Table1/components/tableColumn/TableColumn";
 import DropDownBtn from "../../../../components/dropDownBtn/DropDownBtn";
@@ -41,9 +40,9 @@ export default function RoomList({ id, name, price, imgSrc, isAvaliable, type })
 
 	return (
 		<TableRow>
-			<TableColumn>
+			<TableColumn className="d-none d-md-block">
 				<a href="#x" className="fw-bold">
-					<img src={ host + imgSrc } className="img-fluid rounded-circle" alt={name + " image"} width="50em" height="50em" />
+					<img src={ imgSrc } className="rounded-2" alt={name + " image"} width="50em" height="80em" style={{objectFit: "cover", width: "70%"}} />
 				</a>
 			</TableColumn>
 			<TableColumn>

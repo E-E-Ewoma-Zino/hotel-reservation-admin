@@ -23,6 +23,7 @@ import DropDownItem from "../../../components/dropDownBtn/components/DropDownIte
 export default function EditRoom() {
   const [updateCount, setUpdateCount] = useState(0);
   const location = useLocation();
+  const [isSomethingLoading, setIsSomethingLoading] = useState(false);
   const roomId = location.search.slice(
     location.search.indexOf("id") + 3,
     location.search.length
@@ -48,6 +49,7 @@ export default function EditRoom() {
       setRoom(response.data.data);
     }
     getRoomById();
+	console.log("updating...", updateCount);
   }, [roomId, updateCount]);
 
   return (
@@ -185,7 +187,7 @@ export default function EditRoom() {
                     <div className="position-relative hover-over">
                       <img
                         className="img-fluid"
-                        src={img.cloud?.secure_url}
+                        src={img.cloud? img.cloud?.secure_url: host + img.path}
                         alt={room.name}
                         width="100%"
                       />
@@ -232,7 +234,7 @@ export default function EditRoom() {
                   <Col key={index} size="col-sm-4" className="mb-3">
                     <div className="position-relative hover-over">
                       <video className="img-fluid" controls width="100%">
-                        <source src={vid.cloud?.secure_url} type="video/mp4" />
+                        <source src={vid.cloud? vid.cloud?.secure_url: host + vid.path} type="video/mp4" />
                         <span>video not supported</span>
                       </video>
                       <DropDownBtn

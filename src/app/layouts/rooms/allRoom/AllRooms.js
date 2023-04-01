@@ -10,6 +10,7 @@ import Breadcrumb from "../../../components/breadcrumb/Breadcrumb";
 import Table from "../../../components/Tables/Table1/Table";
 import TableHead from "../../../components/Tables/Table1/components/tableHead/TableHead";
 import { Link } from "react-router-dom";
+import host from "../../../../constants/host";
 
 export default function AllRooms() {
 	const [isLoading, setIsLoading] = useState(false);
@@ -61,7 +62,7 @@ export default function AllRooms() {
 				</div>
 
 				<Table head={[
-					<TableHead title="#" key={0} />,
+					<TableHead className="d-none d-md-block" title="#" key={0} />,
 					<TableHead title="Name" key={1} />,
 					<TableHead title="Type" key={2} />,
 					<TableHead title="Cost" key={3} />,
@@ -70,7 +71,7 @@ export default function AllRooms() {
 				]}>
 					{
 						isLoading ? <tr><td>Loading...</td></tr> :
-							rooms.map(room => <RoomList key={room._id} id={room._id} name={room.name} type={room.type} price={room.price} imgSrc={room.images[0]?.path} isAvaliable={room.isAvaliable} />)
+							rooms.map(room => <RoomList key={room._id} id={room._id} name={room.name} type={room.type} price={room.price} imgSrc={room.images[0]?.cloud? room.images[0].cloud.secure_url: host + room.images[0]?.path} isAvaliable={room.isAvaliable} />)
 					}
 				</Table>
 				<Footer />
