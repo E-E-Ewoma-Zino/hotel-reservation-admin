@@ -11,7 +11,7 @@ export default function SalesChat() {
 		async function getTrackedDetails() {
 			const tt = await trackingFunction();
 
-			setSalesValue(tt.reduce((total, current)=> {
+			setSalesValue(tt?.reduce((total, current)=> {
 				return total + current.frequency[frequency].saleValue
 			}, 0));
 
