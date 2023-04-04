@@ -167,7 +167,7 @@ export default function NewBooking() {
 								className="w-100"
 								disablePortal
 								id="combo-box-demo"
-								value={theRoom.name}
+								value={theRoom?.name}
 								onChange={(e, value) => handelRoomChange(value)}
 								options={allTheRoom.map(r => {
 									return {
